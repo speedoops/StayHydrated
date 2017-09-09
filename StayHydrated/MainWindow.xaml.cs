@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FluentScheduler;
+using System.Diagnostics;
 
 namespace StayHydrated
 {
@@ -24,6 +25,18 @@ namespace StayHydrated
         public MainWindow()
         {
             InitializeComponent();
+            System.Console.WriteLine("Hello, World!");
+            var registry = new Registry();
+            registry.Schedule<MyJob>().ToRunNow().AndEvery(2).Seconds();
+            JobManager.Initialize(registry);
+        }
+    }
+
+    public class MyJob : IJob
+    {
+        public void Execute()
+        {
+            System.Console.WriteLine("Don't forget to drink some water.");
         }
     }
 }
