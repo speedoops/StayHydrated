@@ -29,6 +29,9 @@ namespace StayHydrated
             var registry = new Registry();
             registry.Schedule<MyJob>().ToRunNow().AndEvery(2).Seconds();
             JobManager.Initialize(registry);
+
+            var notification = new Window1();
+            notification.Show();
         }
     }
 
