@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayHydrated", "StayHydrated\StayHydrated.csproj", "{91E0F7F7-2766-4B3D-8B76-1B216DDD7173}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91E0F7F7-2766-4B3D-8B76-1B216DDD7173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E0F7F7-2766-4B3D-8B76-1B216DDD7173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E0F7F7-2766-4B3D-8B76-1B216DDD7173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E0F7F7-2766-4B3D-8B76-1B216DDD7173}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3033A213-EC88-45D9-B8AB-A05C50488B1E}
+	EndGlobalSection
+EndGlobal
