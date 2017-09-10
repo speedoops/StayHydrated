@@ -12,7 +12,8 @@ namespace StayHydrated
     {
         public void Execute(object parameter)
         {
-            System.Console.WriteLine("execute");
+            Settings settings = new Settings();
+            settings.Show();
         }
 
         public bool CanExecute(object parameter)
