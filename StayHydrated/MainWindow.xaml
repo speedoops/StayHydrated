@@ -11,6 +11,6 @@
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"
             IconSource="/icons/icon.ico"
-            ToolTipText="Here2"/>
+            ToolTipText="Stay Hydrated"/>
     </Grid>
 </Window>

@@ -106,39 +106,16 @@
             </Border.Background>
         </Border>
         <Image HorizontalAlignment="Left"
-               Margin="0,10,0,0"
+               Margin="5,23,0,0"
                Width="72"
                Source="/Icons/icon.ico"
                Stretch="Fill"
                Height="72"
                VerticalAlignment="Top" />
-        <TextBlock Margin="72,49.2,10,0"
+        <TextBlock Margin="77,49,5,0"
                    VerticalAlignment="Top"
                    Foreground="#FFECAD25"
-                   TextWrapping="Wrap">
-            <Run Text="This is a user control. The animation uses the attached " />
-            <Run FontStyle="Italic"
-                 FontWeight="Bold"
-                 Text="BalloonShowing " />
-            <Run Text="event." />
-        </TextBlock>
-        <Path Fill="#FFFFFFFF"
-              Stretch="Fill"
-              Margin="72,38.2,34,0"
-              VerticalAlignment="Top"
-              Height="1"
-              Data="M26,107 L220.04123,107"
-              SnapsToDevicePixels="True">
-            <Path.Stroke>
-                <LinearGradientBrush EndPoint="0.973,0.5"
-                                     StartPoint="0.005,0.5">
-                    <GradientStop Color="#00ECAD25"
-                                  Offset="1" />
-                    <GradientStop Color="#87ECAD25"
-                                  Offset="0" />
-                </LinearGradientBrush>
-            </Path.Stroke>
-        </Path>
+                   TextWrapping="Wrap" Text="Don't forget to drink some water. "/>
         <TextBlock Margin="72,10,10,0"
                    VerticalAlignment="Top"
                    Height="23.2"
@@ -151,7 +128,7 @@
                VerticalAlignment="Top"
                Width="16"
                Height="16"
-               Source="/Icons/icon.ico"
+               Source="/Icons/exit.png"
                Stretch="Fill"
                Opacity="0.4"
                ToolTip="Close Balloon"

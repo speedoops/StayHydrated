@@ -30,14 +30,11 @@ namespace StayHydrated
             var registry = new Registry();
             registry.Schedule<MyJob>().ToRunNow().AndEvery(2).Seconds();
 
-            string title = "here0";
-            string text = "here1";
-
             Balloon balloon = new Balloon();
-            balloon.BalloonText = "Custom Balloon";
+            balloon.BalloonText = "Stay Hydrated";
 
             //show balloon and close it after 4 seconds
-            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, 4000);
+            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 10000);
 
             JobManager.Initialize(registry);
         }
