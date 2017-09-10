@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FluentScheduler;
 using System.Diagnostics;
+using Hardcodet.Wpf.TaskbarNotification;
+using System.Windows.Controls.Primitives;
 
 namespace StayHydrated
 {
@@ -25,13 +27,19 @@ namespace StayHydrated
         public MainWindow()
         {
             InitializeComponent();
-            System.Console.WriteLine("Hello, World!");
             var registry = new Registry();
             registry.Schedule<MyJob>().ToRunNow().AndEvery(2).Seconds();
-            JobManager.Initialize(registry);
 
-            var notification = new Window1();
-            notification.Show();
+            string title = "here0";
+            string text = "here1";
+
+            Balloon balloon = new Balloon();
+            balloon.BalloonText = "Custom Balloon";
+
+            //show balloon and close it after 4 seconds
+            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, 4000);
+
+            JobManager.Initialize(registry);
         }
     }
 
