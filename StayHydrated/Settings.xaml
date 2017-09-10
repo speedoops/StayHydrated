@@ -10,5 +10,26 @@
         Title="Settings" Height="300" Width="500"
         Icon="icons/icon.ico">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="102*"/>
+            <RowDefinition Height="155*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="10,2,306,67" Grid.Row="1">
+            Notification Duration (Seconds)
+        </TextBlock>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" Margin="10,33,383,43"
+                 Text="Test" Grid.Row="1"/>
+        <TextBlock Margin="10,68,306,10" Grid.Row="1">
+            Notification Frequency (minutes)
+        </TextBlock>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True"
+                 Text="Test" Grid.Row="1" Margin="10,97,383,134" Grid.RowSpan="2"/>
+        <Button 
+            Content="Save Settings"
+            Margin="373,108,10,10" Grid.Row="2"
+            />
+        <Controls:ToggleSwitch Header="Display Notifications" Margin="325,10,10,43" RenderTransformOrigin="4.414,0.605" Grid.RowSpan="2" />
+
     </Grid>
 </Controls:MetroWindow>
