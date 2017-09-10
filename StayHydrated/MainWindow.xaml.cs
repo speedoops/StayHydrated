@@ -36,6 +36,8 @@ namespace StayHydrated
             //show balloon and close it after 4 seconds
             MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 10000);
 
+            
+
             JobManager.Initialize(registry);
         }
     }
