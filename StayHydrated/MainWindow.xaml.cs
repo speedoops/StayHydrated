@@ -16,6 +16,7 @@ using FluentScheduler;
 using System.Diagnostics;
 using Hardcodet.Wpf.TaskbarNotification;
 using System.Windows.Controls.Primitives;
+using System.IO;
 
 namespace StayHydrated
 {
@@ -24,29 +25,40 @@ namespace StayHydrated
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static Hardcodet.Wpf.TaskbarNotification.TaskbarIcon myNotifyIcon;
+        private static String line;
+        private static Balloon balloon;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            myNotifyIcon = MyNotifyIcon;
+
+            String path = @"Reminders.txt";
+            var lines = File.ReadAllLines(path);
+            int count = lines.Count();
+            Random rnd = new Random();
+            int skip = rnd.Next(0, count);
+            string line = lines.Skip(skip).First();
+
+            balloon = new Balloon();
+            balloon.BalloonText = line;
+
             var registry = new Registry();
-            registry.Schedule<MyJob>().ToRunNow().AndEvery(2).Seconds();
-
-            Balloon balloon = new Balloon();
-            balloon.BalloonText = "Stay Hydrated";
-
-            //show balloon and close it after 4 seconds
-            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 10000);
-
-            
-
+            registry.Schedule<MyJob>().ToRunNow().AndEvery(5).Seconds();
             JobManager.Initialize(registry);
         }
-    }
 
-    public class MyJob : IJob
-    {
-        public void Execute()
+        public void showBalloon() { }
+
+        public class MyJob : IJob
         {
-            System.Console.WriteLine("Don't forget to drink some water.");
+            public void Execute()
+            { 
+                //show balloon and close it after 4 seconds
+                myNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 2000);
+            }
         }
     }
 }
