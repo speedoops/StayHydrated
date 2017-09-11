@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.IO;
+using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace StayHydrated
 {
@@ -26,6 +30,9 @@ namespace StayHydrated
 
             tbDuration.Text = "testing";
             tbFrequency.Text = "testing2";
+
+            Serialize();
+            Deserialize();
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -35,6 +42,64 @@ namespace StayHydrated
             //RoutedCommandNotifyIcon.Dispose();
 
             base.OnClosing(e);
+        }
+
+        static void Serialize()
+        {
+            Hashtable settings = new Hashtable();
+            settings.Add("Duration", 5);
+            settings.Add("Frequency", 15);
+            settings.Add("Display", true);
+
+            FileStream fs = new FileStream("Settings.dat", FileMode.Create);
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, settings);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        static void Deserialize()
+        {
+            // Declare the hashtable reference.
+            Hashtable settings = null;
+
+            // Open the file containing the data that you want to deserialize.
+            FileStream fs = new FileStream("Settings.dat", FileMode.Open);
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                // Deserialize the hashtable from the file and 
+                // assign the reference to the local variable.
+                settings = (Hashtable)formatter.Deserialize(fs);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+
+            // To prove that the table deserialized correctly, 
+            // display the key/value pairs.
+            foreach (DictionaryEntry de in settings)
+            {
+                Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
+            }
         }
     }
 }
