@@ -25,39 +25,39 @@ namespace StayHydrated
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static Hardcodet.Wpf.TaskbarNotification.TaskbarIcon myNotifyIcon;
-        private static String line;
-        private static Balloon balloon;
-
         public MainWindow()
         {
             InitializeComponent();
+            this.Visibility = Visibility.Collapsed;            
 
-            myNotifyIcon = MyNotifyIcon;
-
-            String path = @"Reminders.txt";
-            var lines = File.ReadAllLines(path);
-            int count = lines.Count();
-            Random rnd = new Random();
-            int skip = rnd.Next(0, count);
-            string line = lines.Skip(skip).First();
-
-            balloon = new Balloon();
-            balloon.BalloonText = line;
-
+            var job = new MyJob { window = this, icon = MyNotifyIcon };
             var registry = new Registry();
-            registry.Schedule<MyJob>().ToRunNow().AndEvery(5).Seconds();
             JobManager.Initialize(registry);
-        }
-
-        public void showBalloon() { }
-
+            
+            JobManager.AddJob(job, (s) => s.ToRunEvery(5).Seconds());
+        }  
+        
         public class MyJob : IJob
         {
+            public MainWindow window { get; set; }            
+            public TaskbarIcon icon { get; set; }
+
             public void Execute()
-            { 
-                //show balloon and close it after 4 seconds
-                myNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 2000);
+            {
+                Balloon balloon = new Balloon();
+
+                System.Console.WriteLine("wtf");
+                String path = @"Reminders.txt";
+                var lines = File.ReadAllLines(path);
+                int count = lines.Count();
+                Random rnd = new Random();
+                int skip = rnd.Next(0, count);
+                string line = lines.Skip(skip).First();
+
+                balloon.BalloonText = line;
+
+                //show balloon and close it after 2 seconds
+                window.MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 4000);                
             }
         }
     }
