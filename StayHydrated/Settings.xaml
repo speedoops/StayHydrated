@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Settings" Height="300" Width="500"
         Icon="icons/icon.ico">
-    <Grid>
+    <Grid x:Name="container">
         <Grid.RowDefinitions>
             <RowDefinition Height="12*"/>
             <RowDefinition Height="102*"/>
@@ -19,12 +19,12 @@
             Notification Duration (Seconds)
         </TextBlock>
         <TextBox Controls:TextBoxHelper.ClearTextButton="True" Margin="10,33,383,43"
-                 Text="Test" Grid.Row="1"/>
+                 Grid.Row="1" Name="tbDuration"/>
         <TextBlock Margin="10,68,306,10" Grid.Row="1">
             Notification Frequency (minutes)
         </TextBlock>
         <TextBox Controls:TextBoxHelper.ClearTextButton="True"
-                 Text="Test" Grid.Row="1" Margin="10,97,383,134" Grid.RowSpan="2"/>
+                 Grid.Row="1" Margin="10,97,383,134" Grid.RowSpan="2" Name="tbFrequency"/>
         <Button 
             Content="Save Settings"
             Margin="373,108,10,10" Grid.Row="2"

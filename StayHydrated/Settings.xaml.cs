@@ -23,6 +23,9 @@ namespace StayHydrated
         public Settings()
         {
             InitializeComponent();
+
+            tbDuration.Text = "testing";
+            tbFrequency.Text = "testing2";
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
