@@ -6,29 +6,14 @@
         xmlns:local="clr-namespace:StayHydrated"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Stay Hydrated Settings" Height="350" Width="525"
-        ShowInTaskbar="False" Visibility="Hidden">
+        Title="Main Window" Height="350" Width="525"
+        Loaded="Window_Loaded">
     <Grid>
-        <Grid.Resources>
-            <local:OpenSettingsCommand
-
-        x:Key="SettingsCommand" />
-            
-        </Grid.Resources>
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"            
-            IconSource="/icons/icon.ico"
+            IconSource="/icons/Error.ico"
             ToolTipText="Stay Hydrated"            
             MenuActivation="LeftOrRightClick">
-
-            <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu
-
-                Background="LightCoral">
-                    <MenuItem Header="Settings"
-                              Command="{StaticResource SettingsCommand}"/>
-                </ContextMenu>
-            </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
     </Grid>
 </Window>

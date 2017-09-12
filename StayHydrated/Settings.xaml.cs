@@ -31,7 +31,7 @@ namespace StayHydrated
             tbDuration.Text = "testing";
             tbFrequency.Text = "testing2";
 
-            checkForSavedSettings();
+            //checkForSavedSettings();
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

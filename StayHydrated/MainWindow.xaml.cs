@@ -28,40 +28,25 @@ namespace StayHydrated
         public MainWindow()
         {
             InitializeComponent();
-            this.Visibility = Visibility.Collapsed;
+            //this.Visibility = Visibility.Collapsed;
 
-            SettingsUtil settings = new SettingsUtil();
-            settings.
-
-            var job = new MyJob { window = this, icon = MyNotifyIcon };
-            var registry = new Registry();
-            JobManager.Initialize(registry);
-            
-            JobManager.AddJob(job, (s) => s.ToRunEvery(5).Seconds());
-        }  
-        
-        public class MyJob : IJob
-        {
-            public MainWindow window { get; set; }            
-            public TaskbarIcon icon { get; set; }
-
-            public void Execute()
-            {
-                Balloon balloon = new Balloon();
-
-                System.Console.WriteLine("wtf");
-                String path = @"Reminders.txt";
-                var lines = File.ReadAllLines(path);
-                int count = lines.Count();
-                Random rnd = new Random();
-                int skip = rnd.Next(0, count);
-                string line = lines.Skip(skip).First();
-
-                balloon.BalloonText = line;
-
-                //show balloon and close it after 2 seconds
-                window.MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Fade, 4000);                
-            }
+            //SettingsUtil settings = new SettingsUtil();
+            //settings.
+            JobManager.Initialize(new MyRegistry());
+            System.Console.WriteLine("here2");
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Console.WriteLine("here1");
+            JobManager.AddJob(() => ShowBalloon("ayy lmao", DateTime.Now.ToString()), s => s.ToRunNow().AndEvery(5).Seconds());
+        }
+
+        public void ShowBalloon(string title, string text) => MyNotifyIcon.ShowBalloonTip(title, text, MyNotifyIcon.Icon);
+    }
+
+    public class MyRegistry : Registry
+    {
+        public MyRegistry() { }
     }
 }

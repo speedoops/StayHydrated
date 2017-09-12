@@ -131,6 +131,7 @@
     <Resource Include="icons\exit.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="icons\Error.ico" />
     <Content Include="Reminders.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
