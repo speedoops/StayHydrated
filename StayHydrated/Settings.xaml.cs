@@ -74,51 +74,11 @@ namespace StayHydrated
             {
                 Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
             }
-        }
-
-        private void checkForSavedSettings()
-        {
-            if (File.Exists("Settings.dat")){
-                applySavedSettings();
-            } else
-            {
-                createSavedSettings();
-            }
-        }
-
-        private void createSavedSettings()
-        {
-            Hashtable settings = new Hashtable();
-            settings.Add("Duration", 5);
-            settings.Add("Frequency", 15);
-            settings.Add("Display", true);
-
-            FileStream fs = new FileStream("Settings.dat", FileMode.Create);
-
-            BinaryFormatter formatter = new BinaryFormatter();
-            try
-            {
-                formatter.Serialize(fs, settings);
-            }
-            catch (SerializationException e)
-            {
-                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-        }
+        }       
 
         private void applySavedSettings()
         {
             System.Console.WriteLine("Apply settings");
-        }
-
-        private void updateSavedSettings()
-        {
-
         }
     }
 }

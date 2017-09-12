@@ -28,7 +28,10 @@ namespace StayHydrated
         public MainWindow()
         {
             InitializeComponent();
-            this.Visibility = Visibility.Collapsed;            
+            this.Visibility = Visibility.Collapsed;
+
+            SettingsUtil settings = new SettingsUtil();
+            settings.
 
             var job = new MyJob { window = this, icon = MyNotifyIcon };
             var registry = new Registry();
