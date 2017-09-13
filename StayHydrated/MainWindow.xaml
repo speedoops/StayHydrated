@@ -9,11 +9,23 @@
         Title="Main Window" Height="350" Width="525"
         Visibility="Hidden">
     <Grid>
+        <Grid.Resources>
+            <local:OpenSettingsCommand
+                x:Key="SettingsCommand" />
+        </Grid.Resources>
+
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"            
             IconSource="/icons/Error.ico"
             ToolTipText="Stay Hydrated"            
             MenuActivation="LeftOrRightClick">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu
+                Background="LightCoral">
+                    <MenuItem Header="Settings"
+                              Command="{StaticResource SettingsCommand}"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
     </Grid>
 </Window>
