@@ -28,18 +28,20 @@ namespace StayHydrated
         public MainWindow()
         {
             InitializeComponent();
-            //this.Visibility = Visibility.Collapsed;
+            this.Visibility = Visibility.Collapsed;
 
             //SettingsUtil settings = new SettingsUtil();
             //settings.
             JobManager.Initialize(new MyRegistry());
             System.Console.WriteLine("here2");
+
+            JobManager.AddJob(() => ShowBalloon("ayy lmao", DateTime.Now.ToString()), s => s.ToRunNow().AndEvery(5).Seconds());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             System.Console.WriteLine("here1");
-            JobManager.AddJob(() => ShowBalloon("ayy lmao", DateTime.Now.ToString()), s => s.ToRunNow().AndEvery(5).Seconds());
+            //JobManager.AddJob(() => ShowBalloon("ayy lmao", DateTime.Now.ToString()), s => s.ToRunNow().AndEvery(5).Seconds());
         }
 
         public void ShowBalloon(string title, string text) => MyNotifyIcon.ShowBalloonTip(title, text, MyNotifyIcon.Icon);

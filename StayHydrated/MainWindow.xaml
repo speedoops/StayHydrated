@@ -7,7 +7,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="Main Window" Height="350" Width="525"
-        Loaded="Window_Loaded">
+        Visibility="Hidden">
     <Grid>
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"            
