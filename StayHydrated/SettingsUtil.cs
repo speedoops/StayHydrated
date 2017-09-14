@@ -64,7 +64,7 @@ namespace StayHydrated
             }
         }
 
-        private int getDuration()
+        public int getDuration()
         {
             if (checkForSavedSettings())
             {
@@ -75,7 +75,7 @@ namespace StayHydrated
             }
         }
 
-        private int getFrequency()
+        public int getFrequency()
         {
             if (checkForSavedSettings())
             {
@@ -86,7 +86,7 @@ namespace StayHydrated
             }
         }
 
-        private Boolean getDisplay()
+        public Boolean getDisplay()
         {
             if (checkForSavedSettings())
             {
