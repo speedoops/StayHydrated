@@ -50,11 +50,8 @@ namespace StayHydrated
 
         public Balloon()
         {
-            Console.WriteLine("hereA");
             InitializeComponent();
-            Console.WriteLine("hereB");
             TaskbarIcon.AddBalloonClosingHandler(this, OnBalloonClosing);
-            Console.WriteLine("hereC");
         }
 
 

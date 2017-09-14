@@ -40,9 +40,12 @@ namespace StayHydrated
             display = settings.getDisplay();
             JobManager.Initialize(new MyRegistry());
 
-            Console.WriteLine("here0");
+            JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
+            {
 
-            JobManager.AddJob(() => ShowBalloon("ayy lmao", DateTime.Now.ToString()), s => s.ToRunNow().AndEvery(5).Seconds());
+                ShowBalloon("ayy lmao", DateTime.Now.ToString());
+
+            }), s => s.ToRunNow().AndEvery(5).Seconds());
         }
 
         public void ShowBalloon(string title, string text)

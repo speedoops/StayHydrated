@@ -48,6 +48,7 @@ namespace StayHydrated
             // Declare the hashtable reference.
             Hashtable settings = null;
 
+
             // Open the file containing the data that you want to deserialize.
             FileStream fs = new FileStream("Settings.dat", FileMode.Open);
             try
