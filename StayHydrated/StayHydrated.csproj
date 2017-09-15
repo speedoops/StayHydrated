@@ -74,7 +74,6 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SettingsUtil.cs" />
     <Page Include="Balloon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

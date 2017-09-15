@@ -25,33 +25,26 @@ namespace StayHydrated
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int duration;
-        private int frequency;
-        private Boolean display;
 
         public MainWindow()
         {
             InitializeComponent();
             this.Visibility = Visibility.Collapsed;
 
-            SettingsUtil settings = new SettingsUtil();
-            duration = settings.getDuration();
-            frequency = settings.getFrequency();
-            display = settings.getDisplay();
             JobManager.Initialize(new MyRegistry());
 
             JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
             {
 
-                ShowBalloon("ayy lmao", DateTime.Now.ToString());
+                ShowBalloon();
 
-            }), s => s.ToRunNow().AndEvery(5).Seconds());
+            }), s => s.ToRunNow().AndEvery(Properties.Settings.Default.Frequency).Seconds());
         }
 
-        public void ShowBalloon(string title, string text)
+        public void ShowBalloon()
         {
             Balloon balloon = new Balloon();
-            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, 4000);
+            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, Properties.Settings.Default.Duration);
         }
     }
 

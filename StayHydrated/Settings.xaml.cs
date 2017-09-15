@@ -42,44 +42,13 @@ namespace StayHydrated
 
             base.OnClosing(e);
         }
-
-        static void Deserialize()
-        {
-            // Declare the hashtable reference.
-            Hashtable settings = null;
-
-
-            // Open the file containing the data that you want to deserialize.
-            FileStream fs = new FileStream("Settings.dat", FileMode.Open);
-            try
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-
-                // Deserialize the hashtable from the file and 
-                // assign the reference to the local variable.
-                settings = (Hashtable)formatter.Deserialize(fs);
-            }
-            catch (SerializationException e)
-            {
-                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-
-            // To prove that the table deserialized correctly, 
-            // display the key/value pairs.
-            foreach (DictionaryEntry de in settings)
-            {
-                Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
-            }
-        }       
-
+            
         private void applySavedSettings()
         {
             System.Console.WriteLine("Apply settings");
+            Properties.Settings.Default.Duration = Int32.Parse(tbDuration.Text);
+            Properties.Settings.Default.Frequency = Int32.Parse(tbFrequency.Text);
+            Properties.Settings.Default.Save();
         }
     }
 }
