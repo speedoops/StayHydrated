@@ -25,7 +25,6 @@ namespace StayHydrated
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +34,7 @@ namespace StayHydrated
 
             JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
             {
-
                 ShowBalloon();
-
             }), s => s.ToRunNow().AndEvery(Properties.Settings.Default.Frequency).Seconds());
         }
 

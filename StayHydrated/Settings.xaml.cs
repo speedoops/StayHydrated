@@ -28,25 +28,14 @@ namespace StayHydrated
         {
             InitializeComponent();
 
-            tbDuration.Text = "testing";
-            tbFrequency.Text = "testing2";
-
-            //checkForSavedSettings();
-        }
-
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        {
-            //clean up notifyicon (would otherwise stay open until application finishes)
-            //CustomCommandNotifyIcon.Dispose();
-            //RoutedCommandNotifyIcon.Dispose();
-
-            base.OnClosing(e);
+            tbDuration.Text = (Properties.Settings.Default.Duration/1000).ToString();
+            tbFrequency.Text = Properties.Settings.Default.Frequency.ToString();
         }
             
         private void applySavedSettings()
         {
             System.Console.WriteLine("Apply settings");
-            Properties.Settings.Default.Duration = Int32.Parse(tbDuration.Text);
+            Properties.Settings.Default.Duration = (Int32.Parse(tbDuration.Text)*1000);
             Properties.Settings.Default.Frequency = Int32.Parse(tbFrequency.Text);
             Properties.Settings.Default.Save();
         }
