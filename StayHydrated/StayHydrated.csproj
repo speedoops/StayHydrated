@@ -124,13 +124,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icons\icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icons\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="icons\Error.ico" />
+    <Resource Include="icons\water.png" />
+    <Resource Include="icons\exit.png" />
+    <Resource Include="icons\icon.png" />
+    <Resource Include="icons\icon.ico" />
     <Content Include="Reminders.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

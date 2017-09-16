@@ -16,7 +16,7 @@
 
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"            
-            IconSource="/icons/Error.ico"
+            IconSource="/icons/icon.ico"
             ToolTipText="Stay Hydrated"            
             MenuActivation="LeftOrRightClick">
             <tb:TaskbarIcon.ContextMenu>
