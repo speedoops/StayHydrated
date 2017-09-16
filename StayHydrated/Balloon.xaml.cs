@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
+using System.IO;
 
 namespace StayHydrated
 {
@@ -51,9 +52,22 @@ namespace StayHydrated
         public Balloon()
         {
             InitializeComponent();
+
+            text.Text = getRandomLine();
+
             TaskbarIcon.AddBalloonClosingHandler(this, OnBalloonClosing);
         }
 
+
+        private String getRandomLine()
+        {
+            String path = @"Reminders.txt";
+            var lines = File.ReadAllLines(path);
+            int count = lines.Count();
+            Random rnd = new Random();
+            int skip = rnd.Next(0, count);
+            return lines.Skip(skip).First();
+        }
 
         /// <summary>
         /// By subscribing to the <see cref="TaskbarIcon.BalloonClosingEvent"/>

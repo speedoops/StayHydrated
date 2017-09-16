@@ -113,9 +113,10 @@
                Height="72"
                VerticalAlignment="Top" />
         <TextBlock Margin="77,49,5,0"
+                   Name="text"
                    VerticalAlignment="Top"
                    Foreground="#FFECAD25"
-                   TextWrapping="Wrap" Text="Don't forget to drink some water. "/>
+                   TextWrapping="Wrap" Text=""/>
         <TextBlock Margin="72,10,10,0"
                    VerticalAlignment="Top"
                    Height="23.2"
