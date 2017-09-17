@@ -24,20 +24,34 @@ namespace StayHydrated
     /// </summary>
     public partial class Settings : MetroWindow
     {
-        public Settings()
+        MainWindow window;
+
+        public Settings(MainWindow mainWindow)
         {
             InitializeComponent();
+            window = mainWindow;
+            setTextboxes();
+        }
 
-            tbDuration.Text = (Properties.Settings.Default.Duration/1000).ToString();
+        private void setTextboxes()
+        {
+            tbDuration.Text = (Properties.Settings.Default.Duration / 1000).ToString();
             tbFrequency.Text = Properties.Settings.Default.Frequency.ToString();
         }
             
         private void applySavedSettings()
         {
-            System.Console.WriteLine("Apply settings");
+            System.Console.WriteLine("Apply settings");            
             Properties.Settings.Default.Duration = (Int32.Parse(tbDuration.Text)*1000);
             Properties.Settings.Default.Frequency = Int32.Parse(tbFrequency.Text);
+            setTextboxes();
             Properties.Settings.Default.Save();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            applySavedSettings();
+            window.resetJob();
         }
     }
 }

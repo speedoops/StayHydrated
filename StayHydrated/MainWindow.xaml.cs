@@ -25,6 +25,8 @@ namespace StayHydrated
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow AppMainWindow { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +44,21 @@ namespace StayHydrated
         {
             Balloon balloon = new Balloon();
             MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, Properties.Settings.Default.Duration);
+        }
+
+        public void resetJob()
+        {
+            JobManager.RemoveAllJobs();
+            JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                ShowBalloon();
+            }), s => s.ToRunNow().AndEvery(Properties.Settings.Default.Frequency).Seconds());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings(this);
+            settings.Show();
         }
     }
 

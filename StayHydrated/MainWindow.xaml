@@ -23,7 +23,7 @@
                 <ContextMenu
                 Background="LightCoral">
                     <MenuItem Header="Settings"
-                              Command="{StaticResource SettingsCommand}"/>
+                              Click="MenuItem_Click"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

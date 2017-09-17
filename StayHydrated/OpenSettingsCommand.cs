@@ -12,7 +12,7 @@ namespace StayHydrated
     {
         public void Execute(object parameter)
         {
-            Settings settings = new Settings();
+            Settings settings = new Settings(parameter as MainWindow);
             settings.Show();
         }
 
