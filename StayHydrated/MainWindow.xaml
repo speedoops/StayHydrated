@@ -9,11 +9,6 @@
         Title="Main Window" Height="350" Width="525"
         Visibility="Hidden">
     <Grid>
-        <Grid.Resources>
-            <local:OpenSettingsCommand
-                x:Key="SettingsCommand" />
-        </Grid.Resources>
-
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"            
             IconSource="/icons/icon.ico"

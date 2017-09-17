@@ -52,7 +52,7 @@ namespace StayHydrated
             JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
             {
                 ShowBalloon();
-            }), s => s.ToRunNow().AndEvery(Properties.Settings.Default.Frequency).Seconds());
+            }), s => s.ToRunEvery(Properties.Settings.Default.Frequency).Seconds());
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
