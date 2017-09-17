@@ -35,15 +35,15 @@ namespace StayHydrated
 
         private void setTextboxes()
         {
-            tbDuration.Text = (Properties.Settings.Default.Duration / 1000).ToString();
-            tbFrequency.Text = Properties.Settings.Default.Frequency.ToString();
+            tbDuration.Value = (Properties.Settings.Default.Duration / 1000);
+            tbFrequency.Value = Properties.Settings.Default.Frequency;
         }
             
         private void applySavedSettings()
         {
             System.Console.WriteLine("Apply settings");            
-            Properties.Settings.Default.Duration = (Int32.Parse(tbDuration.Text)*1000);
-            Properties.Settings.Default.Frequency = Int32.Parse(tbFrequency.Text);
+            Properties.Settings.Default.Duration = ((int) tbDuration.Value)*1000;
+            Properties.Settings.Default.Frequency = (int) tbFrequency.Value;
             setTextboxes();
             Properties.Settings.Default.Save();
         }
