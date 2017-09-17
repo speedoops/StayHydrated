@@ -34,7 +34,10 @@ namespace StayHydrated
 
             JobManager.Initialize(new MyRegistry());
 
-            startJob();
+            if (Properties.Settings.Default.DisplayOn)
+            {
+                startJob();
+            }
         }
 
         public void ShowBalloon()
@@ -52,6 +55,7 @@ namespace StayHydrated
         public void stopJob()
         {
             JobManager.RemoveAllJobs();
+            JobManager.Stop();
         }
 
         public void startJob()
