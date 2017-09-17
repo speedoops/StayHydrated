@@ -108,7 +108,7 @@
         <Image HorizontalAlignment="Left"
                Margin="17,17,0,0"
                Width="70"
-               Source="/Icons/water.png"
+               Source="/Icons/icon.png"
                Stretch="Fill"
                Height="90"
                VerticalAlignment="Top" />

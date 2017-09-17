@@ -127,8 +127,9 @@
     <Resource Include="icons\Error.ico" />
     <Resource Include="icons\water.png" />
     <Resource Include="icons\exit.png" />
-    <Resource Include="icons\icon.png" />
     <Resource Include="icons\icon.ico" />
+    <Resource Include="icons\icon_small.png" />
+    <Resource Include="icons\icon.png" />
     <Content Include="Reminders.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

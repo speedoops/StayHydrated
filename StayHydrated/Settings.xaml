@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:StayHydrated"                              
         mc:Ignorable="d"
         Title="Settings" Height="300" Width="500"
-        Icon="icons/icon.ico">
+        Icon="icons/icon_small.png">
     <Grid x:Name="container">
         <Grid.RowDefinitions>
             <RowDefinition Height="12*"/>
