@@ -25,6 +25,8 @@ namespace StayHydrated
     public partial class Settings : MetroWindow
     {
         MainWindow window;
+        private bool displayState;
+        private bool toggleState;
 
         public Settings(MainWindow mainWindow)
         {
@@ -37,6 +39,17 @@ namespace StayHydrated
         {
             tbDuration.Value = (Properties.Settings.Default.Duration / 1000);
             tbFrequency.Value = Properties.Settings.Default.Frequency;
+            if (Properties.Settings.Default.DisplayOn)
+            {
+                displayState = true;
+                toggleState = true;
+                DisplayToggle.IsChecked = true;
+            } else
+            {
+                displayState = false;
+                toggleState = false;
+                DisplayToggle.IsChecked = false;
+            }
         }
             
         private void applySavedSettings()
@@ -44,14 +57,37 @@ namespace StayHydrated
             System.Console.WriteLine("Apply settings");            
             Properties.Settings.Default.Duration = ((int) tbDuration.Value)*1000;
             Properties.Settings.Default.Frequency = (int) tbFrequency.Value;
-            setTextboxes();
+            if (toggleState && !displayState)
+            {
+                System.Console.WriteLine("Turn on display");
+                Properties.Settings.Default.DisplayOn = true;
+                window.startJob();
+            } else if (!toggleState && displayState)
+            {
+                System.Console.WriteLine("Turn off display");
+                Properties.Settings.Default.DisplayOn = false;
+                window.stopJob();
+            }
             Properties.Settings.Default.Save();
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             applySavedSettings();
             window.resetJob();
+        }
+
+        private void DisplayToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            toggleState = true;
+            DisplayToggle.IsChecked = true;
+        }
+
+        private void DisplayToggle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            toggleState = false;
+            DisplayToggle.IsChecked = false;
         }
     }
 }

@@ -34,10 +34,7 @@ namespace StayHydrated
 
             JobManager.Initialize(new MyRegistry());
 
-            JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
-            {
-                ShowBalloon();
-            }), s => s.ToRunNow().AndEvery(Properties.Settings.Default.Frequency).Seconds());
+            startJob();
         }
 
         public void ShowBalloon()
@@ -49,6 +46,16 @@ namespace StayHydrated
         public void resetJob()
         {
             JobManager.RemoveAllJobs();
+            startJob();
+        }
+
+        public void stopJob()
+        {
+            JobManager.RemoveAllJobs();
+        }
+
+        public void startJob()
+        {
             JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
             {
                 ShowBalloon();

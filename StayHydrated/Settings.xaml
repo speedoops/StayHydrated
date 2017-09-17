@@ -39,7 +39,13 @@
             Margin="373,108,10,10" Grid.Row="2"
             Click="Button_Click"
             />
-        <Controls:ToggleSwitch Header="Display Notifications" Margin="325,10,10,43" RenderTransformOrigin="4.414,0.605" Grid.RowSpan="2" />
-
+        <Controls:ToggleSwitch 
+            Header="Display Notifications" 
+            Margin="325,10,10,43" 
+            RenderTransformOrigin="4.414,0.605" 
+            Grid.RowSpan="2"
+            Name="DisplayToggle"
+            Checked="DisplayToggle_Checked"
+            Unchecked="DisplayToggle_Unchecked"/>
     </Grid>
 </Controls:MetroWindow>
