@@ -16,7 +16,7 @@
             <RowDefinition Height="155*"/>
         </Grid.RowDefinitions>
         <TextBlock Margin="10,2,306,67" Grid.Row="1">
-            Notification Duration (Seconds)
+            Notification Duration (seconds)
         </TextBlock>
         <Controls:NumericUpDown 
             Maximum="30"

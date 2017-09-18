@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Duration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5000</Value>
+      <Value Profile="(Default)">15000</Value>
     </Setting>
     <Setting Name="Frequency" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">15</Value>

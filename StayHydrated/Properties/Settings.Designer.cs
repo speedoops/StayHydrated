@@ -25,7 +25,7 @@ namespace StayHydrated.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("15000")]
         public int Duration {
             get {
                 return ((int)(this["Duration"]));
