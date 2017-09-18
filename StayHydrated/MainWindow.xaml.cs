@@ -32,6 +32,8 @@ namespace StayHydrated
             InitializeComponent();
             this.Visibility = Visibility.Collapsed;
 
+            setToRunOnStartup();
+
             JobManager.Initialize(new MyRegistry());
 
             if (Properties.Settings.Default.DisplayOn)
@@ -76,10 +78,22 @@ namespace StayHydrated
         {
             System.Windows.Application.Current.Shutdown();
         }
-    }
 
-    public class MyRegistry : Registry
-    {
-        public MyRegistry() { }
+        private void setToRunOnStartup()
+        {
+            if (StartUpManager.IsUserAdministrator())
+            {
+                StartUpManager.AddApplicationToAllUserStartup();
+            }
+            else
+            {
+                StartUpManager.AddApplicationToCurrentUserStartup();
+            }
+        }
+
+        public class MyRegistry : Registry
+        {
+            public MyRegistry() { }
+        }
     }
 }
