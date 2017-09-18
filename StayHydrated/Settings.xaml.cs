@@ -50,6 +50,13 @@ namespace StayHydrated
                 toggleState = false;
                 DisplayToggle.IsChecked = false;
             }
+            if (Properties.Settings.Default.StartupOn)
+            {
+                StartupToggle.IsChecked = true;
+            } else
+            {
+                StartupToggle.IsChecked = false;
+            }
         }
             
         private void applySavedSettings()
@@ -113,11 +120,13 @@ namespace StayHydrated
 
         private void StartupToggle_Checked(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.StartupOn = true;
             StartupToggle.IsChecked = true;
         }
 
         private void StartupToggle_Unchecked(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.StartupOn = false;
             StartupToggle.IsChecked = false;
         }
     }

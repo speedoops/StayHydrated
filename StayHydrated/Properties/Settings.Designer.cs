@@ -58,5 +58,17 @@ namespace StayHydrated.Properties {
                 this["DisplayOn"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool StartupOn {
+            get {
+                return ((bool)(this["StartupOn"]));
+            }
+            set {
+                this["StartupOn"] = value;
+            }
+        }
     }
 }
