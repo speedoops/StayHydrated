@@ -71,6 +71,11 @@ namespace StayHydrated
             Settings settings = new Settings(this);
             settings.Show();
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 
     public class MyRegistry : Registry

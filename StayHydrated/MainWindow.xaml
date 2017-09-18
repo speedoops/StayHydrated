@@ -19,6 +19,8 @@
                 Background="LightCoral">
                     <MenuItem Header="Settings"
                               Click="MenuItem_Click"/>
+                    <MenuItem Header="Exit"
+                              Click="MenuItem_Click_1"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
