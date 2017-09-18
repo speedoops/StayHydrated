@@ -47,5 +47,14 @@
             Name="DisplayToggle"
             Checked="DisplayToggle_Checked"
             Unchecked="DisplayToggle_Unchecked"/>
+        <Controls:ToggleSwitch
+            Header="Run on Startup"
+            Margin="325,64,10,132" 
+            RenderTransformOrigin="4.414,0.605" 
+            Grid.RowSpan="2"
+            Name="StartupToggle" Grid.Row="1"
+            Checked="StartupToggle_Checked"
+            Unchecked="StartupToggle_Unchecked"
+            />
     </Grid>
 </Controls:MetroWindow>

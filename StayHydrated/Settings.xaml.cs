@@ -68,6 +68,27 @@ namespace StayHydrated
                 Properties.Settings.Default.DisplayOn = false;
                 window.stopJob();
             }
+            if(StartupToggle.IsChecked == true)
+            {
+                if (StartUpManager.IsUserAdministrator())
+                {
+                    StartUpManager.AddApplicationToAllUserStartup();
+                }
+                else
+                {
+                    StartUpManager.AddApplicationToCurrentUserStartup();
+                }
+            } else
+            {
+                if (StartUpManager.IsUserAdministrator())
+                {
+                    StartUpManager.RemoveApplicationFromAllUserStartup();
+                }
+                else
+                {
+                    StartUpManager.RemoveApplicationFromCurrentUserStartup();
+                }
+            }
             Properties.Settings.Default.Save();
         }
 
@@ -88,6 +109,16 @@ namespace StayHydrated
         {
             toggleState = false;
             DisplayToggle.IsChecked = false;
+        }
+
+        private void StartupToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            StartupToggle.IsChecked = true;
+        }
+
+        private void StartupToggle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            StartupToggle.IsChecked = false;
         }
     }
 }
