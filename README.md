@@ -1,6 +1,8 @@
 # About
 
-Stay Hydrated is a WPF application which reminds users to drink water. A notification is displayed periodically with a reminder message. Users can also mute notifications and configure if the application runs on startup in the Settings.
+Stay Hydrated is a WPF application which reminds users to drink water. A notification is displayed periodically with a reminder. 
+
+In the settings, users can specify how often a reminder occurs and for how long it appears. Users can also mute notifications and configure if the application runs on startup.
 
 # Libraries Used
 
