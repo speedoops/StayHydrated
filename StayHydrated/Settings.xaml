@@ -18,32 +18,39 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0">
-            <TextBlock>
+        <Border Padding="10">
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <TextBlock FontSize="14" FontWeight="Bold">
                 Notification Duration (seconds)
-            </TextBlock>
+                </TextBlock>
             <Controls:NumericUpDown Name="tbDuration"
                                    Maximum="30"
                                    Minimum="1" />
-            <TextBlock>
+            <TextBlock FontSize="14" FontWeight="Bold">
                 Notification Frequency (minutes)
             </TextBlock>
             <Controls:NumericUpDown Name="tbFrequency"
                                    Maximum="300"
                                    Minimum="5" />
         </StackPanel>
+        </Border>
         <StackPanel Grid.Column="2" Grid.Row="0">
             <Controls:ToggleSwitch Name="DisplayToggle"
                                   Checked="DisplayToggle_Checked"
                                   Header="Display Notifications"
-                                  Unchecked="DisplayToggle_Unchecked" />
+                                  Unchecked="DisplayToggle_Unchecked" 
+                                  Padding="10"/>
             <Controls:ToggleSwitch Name="StartupToggle"
                                   Checked="StartupToggle_Checked"
                                   Header="Run on Startup"
-                                  Unchecked="StartupToggle_Unchecked" />
+                                  Unchecked="StartupToggle_Unchecked"
+                                  Padding="10"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2">
-            <Button Click="Button_Click" Content="Save Settings"/>
+            <Border Padding="10">
+            <Button Click="Button_Click" 
+                    Content="Save Settings"/>
+            </Border>
         </StackPanel>
     </Grid>
 </Controls:MetroWindow>
