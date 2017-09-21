@@ -46,19 +46,19 @@ namespace StayHydrated
             MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, Properties.Settings.Default.Duration);
         }
 
-        public void resetJob()
+        public void ResetJob()
         {
             JobManager.RemoveAllJobs();
             startJob();
         }
 
-        public void stopJob()
+        public void StopJob()
         {
             JobManager.RemoveAllJobs();
             JobManager.Stop();
         }
 
-        public void startJob()
+        public void StartJob()
         {
             JobManager.AddJob(() => Application.Current.Dispatcher.Invoke((Action)delegate
             {
@@ -77,7 +77,7 @@ namespace StayHydrated
             System.Windows.Application.Current.Shutdown();
         }
 
-        private void setToRunOnStartup()
+        private void SetToRunOnStartup()
         {
             if (StartUpManager.IsUserAdministrator())
             {

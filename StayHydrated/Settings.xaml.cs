@@ -32,10 +32,10 @@ namespace StayHydrated
         {
             InitializeComponent();
             window = mainWindow;
-            setTextboxes();
+            SetTextboxes();
         }
 
-        private void setTextboxes()
+        private void SetTextboxes()
         {
             tbDuration.Value = (Properties.Settings.Default.Duration / 1000);
             tbFrequency.Value = Properties.Settings.Default.Frequency;
@@ -59,7 +59,7 @@ namespace StayHydrated
             }
         }
             
-        private void applySavedSettings()
+        private void ApplySavedSettings()
         {
             System.Console.WriteLine("Apply settings");            
             Properties.Settings.Default.Duration = ((int) tbDuration.Value)*1000;
@@ -68,12 +68,12 @@ namespace StayHydrated
             {
                 System.Console.WriteLine("Turn on display");
                 Properties.Settings.Default.DisplayOn = true;
-                window.startJob();
+                window.StartJob();
             } else if (!toggleState && displayState)
             {
                 System.Console.WriteLine("Turn off display");
                 Properties.Settings.Default.DisplayOn = false;
-                window.stopJob();
+                window.StopJob();
             }
             if(StartupToggle.IsChecked == true)
             {
@@ -102,8 +102,8 @@ namespace StayHydrated
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            applySavedSettings();
-            window.resetJob();
+            ApplySavedSettings();
+            window.ResetJob();
         }
 
         private void DisplayToggle_Checked(object sender, RoutedEventArgs e)
