@@ -34,7 +34,7 @@ namespace StayHydrated
 
             setToRunOnStartup();
 
-            JobManager.Initialize(new MyRegistry());
+            JobManager.Initialize();
 
             if (Properties.Settings.Default.DisplayOn)
             {
@@ -91,9 +91,5 @@ namespace StayHydrated
             }
         }
 
-        public class MyRegistry : Registry
-        {
-            public MyRegistry() { }
-        }
     }
 }
