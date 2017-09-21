@@ -19,14 +19,12 @@ using System.Runtime.Serialization;
 
 namespace StayHydrated
 {
-    /// <summary>
-    /// Interaction logic for Settings.xaml
-    /// </summary>
     public partial class Settings : MetroWindow
     {
         private MainWindow window;
         private bool displayState;
         private bool toggleState;
+        private const int ONE_SECOND = 1000;
 
         public Settings(MainWindow mainWindow)
         {
@@ -37,7 +35,7 @@ namespace StayHydrated
 
         private void SetTextboxes()
         {
-            tbDuration.Value = (Properties.Settings.Default.Duration / 1000);
+            tbDuration.Value = (Properties.Settings.Default.Duration / ONE_SECOND);
             tbFrequency.Value = Properties.Settings.Default.Frequency;
             if (Properties.Settings.Default.DisplayOn)
             {
@@ -55,17 +53,14 @@ namespace StayHydrated
             
         private void ApplySavedSettings()
         {
-            System.Console.WriteLine("Apply settings");            
-            Properties.Settings.Default.Duration = ((int) tbDuration.Value)*1000;
+            Properties.Settings.Default.Duration = ((int) tbDuration.Value)* ONE_SECOND;
             Properties.Settings.Default.Frequency = (int) tbFrequency.Value;
             if (toggleState && !displayState)
             {
-                System.Console.WriteLine("Turn on display");
                 Properties.Settings.Default.DisplayOn = true;
                 window.StartJob();
             } else if (!toggleState && displayState)
             {
-                System.Console.WriteLine("Turn off display");
                 Properties.Settings.Default.DisplayOn = false;
                 window.StopJob();
             }

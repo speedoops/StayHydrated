@@ -30,13 +30,13 @@ namespace StayHydrated
             InitializeComponent();
             this.Visibility = Visibility.Collapsed;
 
-            setToRunOnStartup();
+            SetToRunOnStartup();
 
             JobManager.Initialize();
 
             if (Properties.Settings.Default.DisplayOn)
             {
-                startJob();
+                StartJob();
             }
         }
 
@@ -49,7 +49,7 @@ namespace StayHydrated
         public void ResetJob()
         {
             JobManager.RemoveAllJobs();
-            startJob();
+            StartJob();
         }
 
         public void StopJob()
