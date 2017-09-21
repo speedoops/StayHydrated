@@ -25,8 +25,6 @@ namespace StayHydrated
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow AppMainWindow { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();

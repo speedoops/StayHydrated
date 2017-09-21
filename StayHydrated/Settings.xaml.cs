@@ -24,7 +24,7 @@ namespace StayHydrated
     /// </summary>
     public partial class Settings : MetroWindow
     {
-        MainWindow window;
+        private MainWindow window;
         private bool displayState;
         private bool toggleState;
 
