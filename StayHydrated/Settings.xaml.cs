@@ -21,16 +21,37 @@ namespace StayHydrated
 {
     public partial class Settings : MetroWindow
     {
+        #region Singlton
+        private static readonly Settings instance = new Settings();        
+
+        public static void ShowWindow()
+        {
+            instance.Show();
+            instance.Activate();
+            if (instance.WindowState == WindowState.Minimized)
+            {
+                instance.WindowState = WindowState.Normal;
+            }
+        } 
+        #endregion
+
         private MainWindow window;
         private bool displayState;
         private bool toggleState;
         private const int ONE_SECOND = 1000;
 
-        public Settings(MainWindow mainWindow)
+        private Settings()
         {
             InitializeComponent();
-            window = mainWindow;
+            window = Application.Current.MainWindow as MainWindow;
             SetTextboxes();
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            e.Cancel = true;
+            this.Hide();
         }
 
         private void SetTextboxes()
@@ -87,7 +108,6 @@ namespace StayHydrated
             }
             Properties.Settings.Default.Save();
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

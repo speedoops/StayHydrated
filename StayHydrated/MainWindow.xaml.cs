@@ -17,6 +17,8 @@ using System.Diagnostics;
 using Hardcodet.Wpf.TaskbarNotification;
 using System.Windows.Controls.Primitives;
 using System.IO;
+using Gma.System.MouseKeyHook;
+using Gma.System.MouseKeyHook.Implementation;
 
 namespace StayHydrated
 {
@@ -39,6 +41,40 @@ namespace StayHydrated
                 StartJob();
             }
         }
+
+        #region MouseKeyHook
+        private IKeyboardMouseEvents m_GlobalHook;
+
+        public void Subscribe()
+        {
+            // Note: for the application hook, use the Hook.AppEvents() instead
+            m_GlobalHook = Hook.GlobalEvents();
+
+            m_GlobalHook.MouseDownExt += GlobalHookMouseDownExt;
+            m_GlobalHook.KeyPress += GlobalHookKeyPress;
+        }
+
+        private void GlobalHookKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            Console.WriteLine("KeyPress: \t{0}", e.KeyChar);
+        }
+
+        private void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
+        {
+            Console.WriteLine("MouseDown: \t{0}; \t System Timestamp: \t{1}", e.Button, e.Timestamp);
+
+            // uncommenting the following line will suppress the middle mouse button click
+            // if (e.Buttons == MouseButtons.Middle) { e.Handled = true; }
+        }
+
+        public void Unsubscribe()
+        {
+            m_GlobalHook.MouseDownExt -= GlobalHookMouseDownExt;
+            m_GlobalHook.KeyPress -= GlobalHookKeyPress;
+
+            m_GlobalHook.Dispose();
+        }
+        #endregion
 
         public void ShowBalloon()
         {
@@ -68,13 +104,17 @@ namespace StayHydrated
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = new Settings(this);
-            settings.Show();
+            Settings.ShowWindow();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void RestBreak_Click(object sender, RoutedEventArgs e)
+        {
+            RestBreakWindow.ShowWindow();
         }
 
         private void SetToRunOnStartup()

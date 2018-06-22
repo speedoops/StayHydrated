@@ -11,7 +11,8 @@
                      MinWidth="500"
                      MaxHeight="300"
                      MaxWidth="500"
-                     Icon="icons/icon_small.png">
+                     Icon="icons/icon_small.png"
+                     ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

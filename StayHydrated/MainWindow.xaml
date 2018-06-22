@@ -9,18 +9,21 @@
         Title="Main Window" Height="350" Width="525"
         Visibility="Hidden">
     <Grid>
+        <Grid.Resources>
+            <local:ShowSettingsCommand x:Key="SettingsCommand" />
+        </Grid.Resources>
         <tb:TaskbarIcon
             x:Name="MyNotifyIcon"            
             IconSource="/icons/icon.ico"
-            ToolTipText="Stay Hydrated"            
-            MenuActivation="LeftOrRightClick">
+            ToolTipText="Stay Hydrated"
+            DoubleClickCommand="{StaticResource SettingsCommand}"
+            DoubleClickCommandParameter="Double left mouse button click."
+            MenuActivation="RightClick">
             <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu
-                Background="LightCoral">
-                    <MenuItem Header="Settings"
-                              Click="MenuItem_Click"/>
-                    <MenuItem Header="Exit"
-                              Click="MenuItem_Click_1"/>
+                <ContextMenu Background="LightCoral">
+                    <MenuItem Header="Restbreak" Click="RestBreak_Click"/>
+                    <MenuItem Header="Settings" Click="MenuItem_Click"/>
+                    <MenuItem Header="Exit" Click="MenuItem_Click_1"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
