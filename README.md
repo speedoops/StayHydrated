@@ -9,4 +9,5 @@ In the settings, users can specify how often a reminder occurs and for how long 
 - [FluentScheduler](https://github.com/fluentscheduler/FluentScheduler)
 - [MahApps Metro](https://github.com/MahApps/MahApps.Metro)
 - [WPF NotifyIcon](http://www.hardcodet.net/wpf-notifyicon)
-
+- [FontAwesome.WPF](https://github.com/charri/Font-Awesome-WPF)
+- [MouseKeyHook](https://github.com/gmamaladze/globalmousekeyhook)
