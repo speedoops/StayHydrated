@@ -6,7 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:StayHydrated"
         mc:Ignorable="d"
-        Title="FullScreen" Width="800" Height="600" WindowState="Maximized" ResizeMode="NoResize" Topmost="True" WindowStyle="None" ShowInTaskbar="False" AllowsTransparency="True">
+        Title="FullScreen" Width="800" Height="600" WindowState="Maximized" ResizeMode="NoResize" Topmost="True" WindowStyle="None" ShowInTaskbar="True" AllowsTransparency="True">
     <Window.Background>
         <SolidColorBrush Color="#FF9C9A9A" Opacity="0.75"/>
     </Window.Background>    
@@ -17,6 +17,5 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <fa:ImageAwesome Icon="Spinner" Spin="True" SpinDuration="10" Grid.Row="1"  />
-        <Button x:Name="CloseButton" Content="Close" Click="Button_Click" Margin="0,0,44,30" Grid.Row="2" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" IsCancel="True"/>
     </Grid>
 </Window>

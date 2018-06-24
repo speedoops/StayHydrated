@@ -4,15 +4,10 @@
                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                      xmlns:local="clr-namespace:StayHydrated"
                      xmlns:tb="http://www.hardcodet.net/taskbar"
-                     Title="Settings"
-                     Width="500"
-                     Height="300"
-                     MinHeight="300"
-                     MinWidth="500"
-                     MaxHeight="300"
-                     MaxWidth="500"
+                     Title="Settings" Width="500" Height="300"
+                     MinHeight="300" MinWidth="500" MaxHeight="300" MaxWidth="500"
                      Icon="icons/icon_small.png"
-                     ResizeMode="CanMinimize">
+                     WindowStyle="None" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

@@ -102,21 +102,6 @@ namespace StayHydrated
             }), s => s.ToRunEvery(Properties.Settings.Default.Frequency).Minutes());
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Settings.ShowWindow();
-        }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-        }
-
-        private void RestBreak_Click(object sender, RoutedEventArgs e)
-        {
-            RestBreakWindow.ShowWindow();
-        }
-
         private void SetToRunOnStartup()
         {
             if (StartUpManager.IsUserAdministrator())
@@ -129,5 +114,19 @@ namespace StayHydrated
             }
         }
 
+        private void RestBreakMenu_Click(object sender, RoutedEventArgs e)
+        {
+            RestBreakWindow.ShowWindow();
+        }
+
+        private void SettingsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowWindow();
+        }
+
+        private void ExitMenu_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

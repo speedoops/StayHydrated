@@ -13,7 +13,7 @@
             <local:ShowSettingsCommand x:Key="SettingsCommand" />
         </Grid.Resources>
         <tb:TaskbarIcon
-            x:Name="MyNotifyIcon"            
+            x:Name="MyNotifyIcon"
             IconSource="/icons/icon.ico"
             ToolTipText="Stay Hydrated"
             DoubleClickCommand="{StaticResource SettingsCommand}"
@@ -21,9 +21,9 @@
             MenuActivation="RightClick">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu Background="LightCoral">
-                    <MenuItem Header="Restbreak" Click="RestBreak_Click"/>
-                    <MenuItem Header="Settings" Click="MenuItem_Click"/>
-                    <MenuItem Header="Exit" Click="MenuItem_Click_1"/>
+                    <MenuItem Header="Restbreak" Click="RestBreakMenu_Click"/>
+                    <MenuItem Header="Settings" Click="SettingsMenu_Click"/>
+                    <MenuItem Header="Exit" Click="ExitMenu_Click"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

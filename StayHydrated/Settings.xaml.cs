@@ -32,7 +32,7 @@ namespace StayHydrated
             {
                 instance.WindowState = WindowState.Normal;
             }
-        } 
+        }
         #endregion
 
         private MainWindow window;
@@ -107,6 +107,7 @@ namespace StayHydrated
                 }
             }
             Properties.Settings.Default.Save();
+            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

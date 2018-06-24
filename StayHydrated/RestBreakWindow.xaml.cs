@@ -21,18 +21,6 @@ namespace StayHydrated
         private RestBreakWindow()
         {
             InitializeComponent();
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-        }
-        private void HandleEsc(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.F4)
-                this.Close();
-
-            if (e.KeyboardDevice.Modifiers == ModifierKeys.Alt && e.SystemKey == Key.F5)
-                this.Close();
-
-            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S)
-                this.Close();
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -43,11 +31,11 @@ namespace StayHydrated
             WindowsServices.SetWindowExTransparent(hwnd);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            Shell32.ShellClass objShel = new Shell32.ShellClass();
-            objShel.ToggleDesktop();
-            this.Close();
+            base.OnClosing(e);
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
